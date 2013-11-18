@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+
+        <title>PACE Editor</title>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- 3rd party libraries -->
+        <script src="js/vendor/jquery-1.10.2.min.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/vendor/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/vendor/ace/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- <link href='http://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'> -->
+
+        <!-- Editor libraries -->
+        <link rel="stylesheet" href="css/editor.css">
+        <script src="js/editor.js"></script>
+
+    </head>
+    <body>
+
+        <div id="navPanel">
+            <div id="panellist" class="button">Panel List</div>
+            <div id="panelSelect" class="button">
+                <select>
+                    <option value="house">house</option>
+                    <option value="car">car</option>
+                    <option value="car2">car2</option>
+                    <option value="graveyard">graveyard</option>
+                </select>
+            </div>
+            <div id="load" class="button">Load..</div>
+            <div id="load" class="button">Save As..</div>
+            <div id="save" class="button">Save</div>
+        </div>
+
+        <!-- Configuration Editor panel -->
+        <div id="configEditor" class="middled">
+            <h1>Configuration:</h1>
+
+            <div class="foldDivider">Global CSS</div>
+            <div id="globalCSS" class="cssEditor"></div>
+
+            <div class="foldDivider">Global JS</div>
+            <div id="globalJS" class="jsEditor"></div>
+
+            <div class="foldDivider">Header HTML</div>
+            <div id="headerHTML" class="htmlEditor"></div>
+
+            <div class="foldDivider">Footer HTML</div>
+            <div id="footerHTML" class="htmlEditor"></div>
+
+            <div class="foldDivider">Image Precache:</div>
+            <div>
+                <div id="imagePrecacheList" class="listEdit"></div>
+                <div class="buttonRow">
+                    <div class="button">Verify</div>
+                    <div class="button">Crawl Code</div>
+                </div>
+            </div>
+
+            <div class="foldDivider">Audio Precache:</div>
+            <div>
+                <div id="audioPrecacheList" class="listEdit"></div>
+                <div class="buttonRow">
+                    <div class="button">Verify</div>
+                    <div class="button">Crawl Code</div>
+                </div>
+            </div>
+            <div></div>
+
+        </div>
+
+        <!-- Scene Editor panel -->
+        <div id="sceneEditor" class="middled">
+
+            <h1>Scene Editor:</h1>
+            <div></div>
+
+            <div id="sceneOptions">
+
+                <div id="sceneView">
+                </div>
+
+                <h2>Scene Options:</h2>
+
+                Label: <span id="label" class="textEntry textEdit">untitled</span>
+
+                <div id="bg">
+                    Size: <span id="sizeX" class="textEntry textEdit">640px</span> × <span id="sizeY" class="textEntry textEdit">480px</span>
+                    <br>
+                    Background Image URL: <span id="url" class="textEntry textEdit">none</span>
+                    <br>
+                    Background Image Position: ( <span id="posX" class="textEntry textEdit">0px</span>, <span id="posY" class="textEntry textEdit">0px</span> )
+                </div>
+
+                <div class="foldDivider">Scene CSS</div>
+                <div id="sceneCSS" class="cssEditor">
+#scene .untitled {
+    width: 800px;
+    height: 600px;
+    background-position: 0px 0px;
+}</div>
+
+                <div class="foldDivider">Scene JS</div>
+                <div id="sceneJS" class="jsEditor"></div>
+
+                <div class="foldDivider">On Enter JS</div>
+                <div id="onEnterScript" class="jsEditor"></div>
+
+                <div class="foldDivider">On Hover JS</div>
+                <div id="onHoverScript" class="jsEditor"></div>
+            </div>
+
+            <div id="hotspotCallbacks">
+                <h2>Hotspot Callbacks:</h2>
+
+                <div class="foldDivider">On Click JS</div>
+                <div id="onClickScript" class="jsEditor"></div>
+
+                <div class="foldDivider">On Double-Click JS</div>
+                <div id="onDblClickScript" class="jsEditor"></div>
+
+                <div class="foldDivider">On Hover JS</div>
+                <div id="onHoverScript" class="jsEditor"></div>
+
+                <div class="foldDivider">Hotspot CSS</div>
+                <div id="hotspotCSS" class="cssEditor"></div>
+
+                <div class="foldDivider">Hotspot JS</div>
+                <div id="hotspotJS" class="jsEditor"></div>
+
+            </div>
+
+        </div>
+
+        <!-- Inventory Editor panel -->
+        <div id="inventoryEditor" class="middled">
+            <h1>Inventory:</h1>
+
+            <div class="foldDivider">Inventory CSS</div>
+            <div id="inventoryCSS" class="cssEditor"></div>
+
+        </div>
+
+        <!-- Scene Preview panel -->
+        <div id="scenePreview" class="middled">
+
+            <h1>Preview:</h1>
+        </div>
+
+        <script>
+            initEditor();
+        </script>
+
+    </body>
+</html>
