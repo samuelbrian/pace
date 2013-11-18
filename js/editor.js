@@ -22,7 +22,18 @@ function initConfigEditor() {
 /* Scene Editor options */
 
 function initSceneEditor() {
+
     var panel = $("#sceneEditor");
+    var scene = $("#scene");
+
+    var sceneCSS = $("#sceneCSS");
+    var sceneCSSEditor = ace.edit(sceneCSS[0]);
+
+    $("#css-sceneCSS").text(sceneCSSEditor.getValue());
+
+    sceneCSS.keyup(function(e) {
+        $("#css-sceneCSS").text(sceneCSSEditor.getValue());
+    });
 
     var sizeX = panel.find("#sizeX");
     var sizeY = panel.find("#sizeY");
@@ -47,34 +58,36 @@ function initSceneEditor() {
         });
     });
 
-    var sceneCSSEditor = ace.edit($("#sceneCSS")[0]);
-
     bgURL.keydown(function(e) { textEditKeyDown(e); })
-    bgURL.keyup(function(e) {
-        textEditKeyUp(e);
-        var sceneCSS = sceneCSSEditor.getValue();
+    bgURL.keyup(function(e) { textEditKeyUp(e); });
+    bgURL.focusout(function(e) {
+        var sceneCSSText = sceneCSSEditor.getValue();
         var url = bgURL.text();
         if (url != "none") {
-            sceneCSS = cssSet("#scene ." + label.text(), "background-url", "url(" + url + ")", sceneCSS);
+            sceneCSSText = cssSet("#scene." + label.text(), "background-image", "url(\"" + url + "\")", sceneCSSText);
         } else {
-            sceneCSS = cssSet("#scene ." + label.text(), "background-url", "none", sceneCSS);
+            sceneCSSText = cssSet("#scene." + label.text(), "background-image", "none", sceneCSSText);
         }
-        sceneCSSEditor.setValue(sceneCSS);
+        sceneCSSEditor.setValue(sceneCSSText);
         sceneCSSEditor.selection.clearSelection();
+        $("#css-sceneCSS").text(sceneCSSEditor.getValue());
     });
 
     var oldLabel = "untitled";
-    label.keydown(function(e) {
-        textEditKeyDown(e);
-        oldLabel = label.text();
-    })
-    label.keyup(function(e) {
-        var sceneCSS = sceneCSSEditor.getValue();
-        sceneCSS = sceneCSS.replace(
-            RegExp("#scene ." + oldLabel + (/\s*{/).source, "g"), "#scene ." + label.text() + " {");
-        sceneCSSEditor.setValue(sceneCSS);
+    label.keydown(function(e) { textEditKeyDown(e); })
+    label.keyup(function(e) { textEditKeyUp(e); });
+    label.focus(function(e) { oldLabel = label.text(); });
+    label.focusout(function(e) {
+        var sceneCSSText = sceneCSSEditor.getValue();
+        var newLabel = label.text();
+        sceneCSSText = sceneCSSText.replace(
+            RegExp("#scene." + oldLabel + (/\s*{/).source, "g"), "#scene." + newLabel + " {");
+        sceneCSSEditor.setValue(sceneCSSText);
         sceneCSSEditor.selection.clearSelection();
-        textEditKeyUp(e);
+        $("#css-sceneCSS").text(sceneCSSEditor.getValue());
+
+        scene.removeClass(oldLabel);
+        scene.addClass(newLabel);
     });
 
 }
@@ -90,12 +103,12 @@ function validateSceneSize(sizeX, sizeY, sceneLabel) {
     var valid = true;
     [sizeX, sizeY].forEach(function (dim) {
         var text = dim.text();
-        if (isDimension(text) || text == "auto" || text == "inherit") {
+        if (isDimension(text) || text == "auto" || text == "inherit" || text == "0") {
             dim.css("color", "blue");
             dim.attr("title", "");
         } else {
             dim.css("color", "red");
-            dim.attr("title", "must be a valid dimension, ie. '800px' or '60%'");
+            dim.attr("title", "must be a valid dimension, ie. '800px' or '60%' or '0'");
             valid = false;
         }
     });
@@ -103,10 +116,11 @@ function validateSceneSize(sizeX, sizeY, sceneLabel) {
     if (valid) {
         var sceneCSSEditor = ace.edit($("#sceneCSS")[0])
         var sceneCSS = sceneCSSEditor.getValue();
-        sceneCSS = cssSet("#scene ." + sceneLabel, "width", sizeX.text(), sceneCSS);
-        sceneCSS = cssSet("#scene ." + sceneLabel, "height", sizeY.text(), sceneCSS);
+        sceneCSS = cssSet("#scene." + sceneLabel, "width", sizeX.text(), sceneCSS);
+        sceneCSS = cssSet("#scene." + sceneLabel, "height", sizeY.text(), sceneCSS);
         sceneCSSEditor.setValue(sceneCSS);
         sceneCSSEditor.selection.clearSelection();
+        $("#css-sceneCSS").text(sceneCSSEditor.getValue());
     }
 }
 
@@ -119,12 +133,12 @@ function validateSceneBGPos(posX, posY, sceneLabel) {
     var valid = true;
     [posX, posY].forEach(function (dim) {
         var text = dim.text();
-        if (isDimension(text) || text == "auto" || text == "inherit") {
+        if (isDimension(text) || text == "auto" || text == "inherit" || text == "0") {
             dim.css("color", "blue");
             dim.attr("title", "");
         } else {
             dim.css("color", "red");
-            dim.attr("title", "must be a valid dimension, ie. '800px' or '60%'");
+            dim.attr("title", "must be a valid dimension, ie. '800px' or '60%' or '0'");
             valid = false;
         }
     });
@@ -132,9 +146,10 @@ function validateSceneBGPos(posX, posY, sceneLabel) {
     if (valid) {
         var sceneCSSEditor = ace.edit($("#sceneCSS")[0])
         var sceneCSS = sceneCSSEditor.getValue();
-        sceneCSS = cssSet("#scene ." + sceneLabel, "background-position", posX.text() + " " + posY.text(), sceneCSS);
+        sceneCSS = cssSet("#scene." + sceneLabel, "background-position", posX.text() + " " + posY.text(), sceneCSS);
         sceneCSSEditor.setValue(sceneCSS);
         sceneCSSEditor.selection.clearSelection();
+        $("#css-sceneCSS").text(sceneCSSEditor.getValue());
     }
 }
 
@@ -154,7 +169,7 @@ function cssSet(selector, attribute, newValue, cssStr) {
 
     //cssStr = cssStr.replace(/\/\*(\r|\n|.)*\*\//g,""); // Remove comments
 
-    // bod.match(/#scene \.label\s*{(?:\s*[^;]*;)*\s*width:\s*([^;]*);(?:\s[^;]*;\s)*}/)
+    // bod.match(/#scene\.label\s*{(?:\s*[^;]*;)*\s*width:\s*([^;]*);(?:\s[^;]*;\s)*}/)
 
     var regex = RegExp(
         selector.replace(".", "\\.")

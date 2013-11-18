@@ -24,6 +24,8 @@
         <link rel="stylesheet" href="css/editor.css">
         <script src="js/editor.js"></script>
 
+        <style id="css-sceneCSS"></style>
+
     </head>
     <body>
 
@@ -83,12 +85,10 @@
         <div id="sceneEditor" class="middled">
 
             <h1>Scene Editor:</h1>
-            <div></div>
+
+            <div id="scene" class="untitled"></div>
 
             <div id="sceneOptions">
-
-                <div id="sceneView">
-                </div>
 
                 <h2>Scene Options:</h2>
 
@@ -104,11 +104,17 @@
 
                 <div class="foldDivider">Scene CSS</div>
                 <div id="sceneCSS" class="cssEditor">
-#scene .untitled {
-    width: 800px;
-    height: 600px;
-    background-position: 0px 0px;
-}</div>
+#scene.untitled {
+    width: 500px;
+    height: 300px;
+    background-position: 0 0;
+    background-image: url("http://knifetanks.com/kt2/images/main.png");
+    background-size: 100% 100%;
+    background-repeat: none;
+    background-color: lightblue;
+    margin: 0 auto;
+}
+                </div>
 
                 <div class="foldDivider">Scene JS</div>
                 <div id="sceneJS" class="jsEditor"></div>
