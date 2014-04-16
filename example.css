@@ -1,0 +1,54 @@
+#scene.untitled {
+    width: 840px;
+    height: 400px;
+    background-position: 0px 0px;
+    background-image: url("http://www.ludumdare.com/compo/wp-content/uploads/2009/08/new_cave_bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: repeat-x;
+    background-color: yellow;
+    margin: 0 auto;
+    webkit-animation: hscroll840px 10s infinite linear;
+}
+
+@-webkit-keyframes hscroll840px {
+    0% { background-position: 0px 0px; }
+    100% { background-position: -840px 0px; }
+}
+
+
+
+
+
+
+#scene.untitled {
+    width: 840px;
+    height: 400px;
+    background-position: 0px 0px;
+    background-image: url("http://www.ludumdare.com/compo/wp-content/uploads/2009/08/new_cave_bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: repeat-x;
+    background-color: yellow;
+    margin: 0 auto;
+    -webkit-animation: hscroll840px 10s infinite linear;
+}
+
+@-webkit-keyframes hscroll840px {
+    0% { background-position: 0px 0px; }
+    100% { background-position: -840px 0px; }
+}
+
+
+
+
+
+
+
+
+.item {
+    width: 50px;
+    height: 50px;
+}
+
+.item:after {
+    content: attr(count);
+}
