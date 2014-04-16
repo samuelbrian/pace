@@ -21,137 +21,135 @@
 
         <!-- <link href='http://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'> -->
 
-        <link rel="stylesheet" href="css/editor.css">
-        <link rel="stylesheet" href="css/jquery-ui-1.10.3.custom.min.css">
-
         <style id="globalCSS"></style>
         <style id="sceneCSS"></style>
         <style id="hotSpotCSS"></style>
+
+        <link rel="stylesheet" href="css/editor.css">
+        <link rel="stylesheet" href="css/jquery-ui-1.10.3.custom.min.css">
 
     </head>
     <body>
 
         <div id="title"><h1>Pace Editor</h1></div>
-        <div id="navPanel" class="middled">
-            <div id="configButton" class="button">Config Editor</div>
-            <div id="sceneButton" class="button">Scene Editor</div>
+
+        <div id="navPanel">
             <div id="previewButton" class="button">Preview</div>
             <div id="newButton" class="button">New</div>
-            <div id="reloadButton" class="button">Reload</div>
-            <div id="saveButton" class="button">Save Local</div>
-            <div id="viewButton" class="button">View Local</div>
             <div id="importButton" class="button">Import</div>
             <div id="exportButton" class="button">Export</div>
-            <div id="helpButton" class="button">Help</div>
 
             <input id="importFile" type="file" style="display: none"/>
         </div>
 
-        <div>
+        <!-- To all you table snobs out there - whatevs yo! -->
+        <table id="layoutTable">
+            <tr>
 
-            <!-- Configuration Editor panel -->
-            <div id="configEditor" class="middled mainContent">
-                <h1>Configuration:</h1>
+                <td id="col0">
+                    <div id="configButton"><h3>Global Config</h3></div>
+                        <h3>Scenes <button id="addScene">+</button></h3>
+                    <div id="sceneSelect"></div>
+                </td>
 
-                <div class="foldDivider">Header HTML</div>
-                <div id="headerHTMLEditor" class="htmlEditor"></div>
+                <td id="col1">
+                    <h3>HotSpots <button id="addHotSpot">+</button></h3>
+                    <div id="hotSpotSelect"></div>
+                </td>
 
-                <div class="foldDivider">Footer HTML</div>
-                <div id="footerHTMLEditor" class="htmlEditor"></div>
+                <td id="col2">
 
-                <div class="foldDivider">Global CSS</div>
-                <div id="CSSEditor" class="cssEditor"></div>
+                    <!-- Configuration Editor panel -->
+                    <div id="configEditor" class="mainContent">
+                        <h1>Configuration:</h1>
 
-                <div class="foldDivider">Global JS</div>
-                <div id="JSEditor" class="jsEditor"></div>
+                        <div class="foldDivider">Header HTML</div>
+                        <div id="headerHTMLEditor" class="htmlEditor"></div>
 
-            </div>
+                        <div class="foldDivider">Footer HTML</div>
+                        <div id="footerHTMLEditor" class="htmlEditor"></div>
 
-            <!-- Scene Editor panel -->
-            <div id="sceneEditor" class="middled mainContent">
+                        <div class="foldDivider">Global CSS</div>
+                        <div id="CSSEditor" class="cssEditor"></div>
 
-                <h1>Scene Editor:</h1>
-
-                <label>Scene Select:</label><select id="sceneSelect"></select>
-                <button id="addScene">+</button>
-                <button id="removeScene">-</button>
-
-                <div id="scenes"></div>
-
-                <label>HotSpot Select:</label><select id="hotSpotSelect"></select>
-                <button id="addHotSpot">+</button>
-                <button id="removeHotSpot">-</button>
-                <button id="hideHotSpotEditor">Toggle HotSpot Editor</button>
-
-                <div id="sceneOptions">
-
-                    <h2>Scene Options:</h2>
-                    <div>
-                        Label: <input class="label" type="text">
+                        <div class="foldDivider">Global JS</div>
+                        <div id="JSEditor" class="jsEditor"></div>
                     </div>
 
-                    <div>
-                        Background Image URL: <input class="imgURL" type="text">
+                    <!-- Scene Editor panel -->
+                    <div id="sceneEditor" class="mainContent">
+
+                        <div id="scenes"></div>
+
+                        <div id="sceneOptions">
+
+                            <h2>Scene <input class="label" type="text"> <button id="removeScene">Remove</button></h2>
+
+                            <div>
+                                Background Image URL: <input class="imgURL" type="text">
+                            </div>
+
+                            <div class="foldDivider">Scene CSS</div>
+                            <div id="CSSEditor" class="cssEditor">
+                            </div>
+
+                            <div class="foldDivider">Scene JavaScript</div>
+                            <div id="JSEditor" class="jsEditor"></div>
+
+                            <div class="foldDivider">On Enter Script Body</div>
+                            <div id="onEnterJSBody" class="jsEditor"></div>
+
+                            <div class="foldDivider">On Exit Script Body</div>
+                            <div id="onExitJSBody" class="jsEditor"></div>
+
+                            <div class="foldDivider">On Mouse Move Script Body</div>
+                            <div id="onMouseMoveJSBody" class="jsEditor"></div>
+                        </div>
+
+                        <div id="hotSpotOptions">
+
+                            <h2>Hotspot
+                                <input class="label" type="text">
+                                <button id="removeHotSpot">Remove</button>
+                                <button id="hideHotSpotEditor">Back to Scene</button>
+                            </h2>
+
+                            <div class="foldDivider">Hotspot CSS</div>
+                            <div id="CSSEditor" class="cssEditor"></div>
+
+                            <div class="foldDivider">Hotspot Script</div>
+                            <div id="JSEditor" class="jsEditor"></div>
+
+                            <div class="foldDivider">On Click Script Body</div>
+                            <div id="onClickJSBody" class="jsEditor"></div>
+
+                            <div class="foldDivider">On Double-Click Script Body</div>
+                            <div id="onDoubleClickJSBody" class="jsEditor"></div>
+
+                            <div class="foldDivider">On Hover Script Body</div>
+                            <div id="onMouseMoveJSBody" class="jsEditor"></div>
+
+                        </div>
                     </div>
 
-
-                    <div class="foldDivider">Scene CSS</div>
-                    <div id="CSSEditor" class="cssEditor">
+                    <div id="help" class="mainContent">
+                        <h1>Help</h1>
+                        <div>So, you want to try use this thing? I'd recommend <a href="#" id="loadDefaults">loading the defaults</a>. You might also want to check out the README (wherever that is).</div>
+                        <hr>
+                        Created by Samuel Brian.
                     </div>
 
-                    <div class="foldDivider">Scene JavaScript</div>
-                    <div id="JSEditor" class="jsEditor"></div>
+                </td>
+            </tr>
+        </table>
 
-                    <div class="foldDivider">On Enter Script Body</div>
-                    <div id="onEnterJSBody" class="jsEditor"></div>
-
-                    <div class="foldDivider">On Exit Script Body</div>
-                    <div id="onExitJSBody" class="jsEditor"></div>
-
-                    <div class="foldDivider">On Mouse Move Script Body</div>
-                    <div id="onMouseMoveJSBody" class="jsEditor"></div>
-                </div>
-
-                <div id="hotSpotOptions">
-                    <h2>Hotspot Options:</h2>
-
-                    <div>
-                        Label: <input class="label" type="text">
-                    </div>
-
-                    <div class="foldDivider">On Click Script Body</div>
-                    <div id="onClickJSBody" class="jsEditor"></div>
-
-                    <div class="foldDivider">On Double-Click Script Body</div>
-                    <div id="onDoubleClickJSBody" class="jsEditor"></div>
-
-                    <div class="foldDivider">On Hover Script Body</div>
-                    <div id="onMouseMoveJSBody" class="jsEditor"></div>
-
-                    <div class="foldDivider">Hotspot CSS</div>
-                    <div id="CSSEditor" class="cssEditor"></div>
-
-                    <div class="foldDivider">Hotspot Script</div>
-                    <div id="JSEditor" class="jsEditor"></div>
-
-                </div>
-            </div>
-
-            <!-- Scene Preview panel -->
-            <div id="scenePreview" class="mainContent">
-                <h1 class="middled">Preview:</h1>
-                <iframe src="view.html"></iframe>
-            </div>
-
-            <div id="help" class="mainContent">
-                <h1>Help</h1>
-                <div>So, you want to try use this thing? I'd recommend <a href="#" id="loadDefaults">loading the defaults</a>. You might also want to check out the README (wherever that is).</div>
-                <hr>
-                Created by Samuel Brian.
-            </div>
-
-
+        <!-- Scene Preview panel -->
+        <div id="scenePreview" class="hidden">
+            <h2><div id="unpreviewButton" class="button">Exit Preview</div></h2>
+            <iframe src="view.html"></iframe>
         </div>
+
+        <!-- <div id="helpButton">Help</div> -->
 
         <script src="js/editor.js"></script>
 

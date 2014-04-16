@@ -1,11 +1,20 @@
 body {
     font-family: 'Alef', sans-serif;
     line-height: 150%;
+    background-color: whitesmoke;
 }
 
 h2 {
     margin-bottom: 2px;
     clear: both;
+}
+
+h3 {
+    text-align: center;
+}
+
+#title {
+    text-align: center;
 }
 
 #navPanel {
@@ -15,8 +24,35 @@ h2 {
     margin: 0 auto;
 }
 
-#title {
-    text-align: center;
+#layoutTable, #layoutTable tr {
+    width: 100%;
+    overflow: hidden;
+}
+
+#layoutTable tr {
+    width: 100%;
+}
+
+#col0 {
+    width: 15%;
+    vertical-align: top;
+    border-right: 1px gray solid;
+}
+
+#col1 {
+    width: 10%;
+    vertical-align: top;
+    border-right: 1px gray solid;
+}
+
+#col2 {
+    vertical-align: top;
+}
+
+.mainContent {
+    display: none;
+    width: 90%;
+    margin: 0 auto;
 }
 
 /* Major layout divs */
@@ -40,6 +76,8 @@ h2 {
     margin-left: -100px;
     margin-top: -50px;
 }
+
+
 
 /* Scene Editor */
 
@@ -71,7 +109,7 @@ h2 {
 }
 
 .hotSpot.selected {
-    border: 1px solid red;
+    border: 2px solid red;
 }
 
 #scenePreview iframe {
@@ -119,17 +157,12 @@ h2 {
     padding: 5px;
     margin: 3px;
     min-width: 100px;
-    float: left;
     cursor: pointer;
     background-color: #cccccc;
     transition: background-color 0.2s;
+    float: left;
 
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+
 }
 
 .button:hover {
@@ -157,6 +190,59 @@ h2 {
     min-height: 300px;
 }
 
-.mainContent {
+.hidden {
     display: none;
+}
+
+
+#sceneSelect img {
+    margin: 0 auto;
+    display: block;
+    width: 90%;
+}
+
+#sceneSelect .subtitle {
+    text-align: center;
+    font-size: 20px;
+}
+
+#sceneSelect .option {
+    margin-top: 20px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+#sceneSelect .option:hover {
+    background-color: lightblue;
+}
+
+#sceneSelect .option.selected {
+    background-color: lightskyblue;
+}
+
+#hotSpotSelect .option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#hotSpotSelect .option:nth-child(odd) {
+    background: #eeeeee;
+}
+
+#hotSpotSelect .option:hover {
+    background-color: lightblue;
+}
+
+#hotSpotSelect .option.selected {
+    background-color: lightskyblue;
+}
+
+#unpreviewButton {
+    float: right;
+}
+
+#configButton {
+    background-color: #d3d3d3;
+    cursor: pointer;
+    padding: 1px;
 }
