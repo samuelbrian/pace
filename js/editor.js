@@ -684,13 +684,6 @@ $("#sceneButton").click(function() {
     $("#sceneEditor").show();
 });
 
-$("#apiButton").click(function() {
-    $("#navPanel .button.selected").removeClass("selected");
-    $(this).addClass("selected");
-    $(".mainContent").hide();
-    $("#apiDoc").show();
-});
-
 $("#importButton").click(function() {
     var th = $(this);
     th.addClass("selected")
@@ -721,7 +714,7 @@ $("#exportButton").click(function() {
     var th = $(this);
     th.addClass("selected")
     setTimeout(function() { th.removeClass("selected"); }, 500);
-    var blob = new Blob([JSON.stringify(paceData)], {type: "text/plain;charset=utf-8"});
+    var blob = new Blob([JSON.stringify(paceData, null, "  ")], {type: "text/plain;charset=utf-8"});
     saveAs(blob, "scene.json");
 });
 

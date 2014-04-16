@@ -31,7 +31,7 @@
     </head>
     <body>
 
-        <div id="title"><h1>Pace</h1></div>
+        <div id="title"><h1>Pace Editor</h1></div>
         <div id="navPanel" class="middled">
             <div id="configButton" class="button">Config Editor</div>
             <div id="sceneButton" class="button">Scene Editor</div>
@@ -43,7 +43,6 @@
             <div id="importButton" class="button">Import</div>
             <div id="exportButton" class="button">Export</div>
             <div id="helpButton" class="button">Help</div>
-            <div id="apiButton" class="button">API Documentation</div>
 
             <input id="importFile" type="file" style="display: none"/>
         </div>
@@ -140,94 +139,15 @@
 
             <!-- Scene Preview panel -->
             <div id="scenePreview" class="mainContent">
-
                 <h1 class="middled">Preview:</h1>
-
                 <iframe src="view.html"></iframe>
-
-            </div>
-
-            <div id="apiDoc" class="mainContent">
-                <h1>API Documentation</h1>
-
-                <hr>
-                <h2>Scene</h2>
-
-                <h3>goToScene(sceneId)</h3>
-
-                <h3>hideScenes()</h3>
-
-                <hr>
-                <h2>Page Manipulation</h2>
-
-                <h3>setTitle(title)</h3>
-                Set the title of the web page.
-
-                <h3>setHeader(html)</h3>
-                Set the footer to the string of HTML.
-
-                <h3>appendHeader(html)</h3>
-                Add a string of HTML to the end of the footer.
-
-                <h3>prependHeader(html)</h3>
-                Add a string of HTML to the beginning of the footer.
-
-                <h3>setFooter(html)</h3>
-                Set the footer to the string of HTML.
-
-                <h3>appendFooter(html)</h3>
-                Add a string of HTML to the end of the footer.
-
-                <h3>prependFooter(html)</h3>
-                Add a string of HTML to the beginning of the footer.
-
-                <h3>loadExternalCSS(href)</h3>
-                Load a CSS into the page from the given URL.
-
-                <h3>loadExternalJS(href)</h3>
-                Load a JavaScript script into the page from the given URL.
-
-                <hr>
-                <h2>Inventory</h2>
-
-                <h3>createInventory()</h3>
-                Return an inventory an HTML element for adding to the document.
-
-                <h3>addItem(imgURL, count=1)</h3>
-                <h3>removeItem(imgURL, count=1)</h3>
-                <h3>countItem(imgURL)</h3>
-
-                <hr>
-                <h2>Audio</h2>
-
-                <h3>playSound(filename, channel, volume, loop)</h3>
-                <h3>pauseSound(channel)</h3>
-                <h3>replaySound(channel)</h3>
-
-                <hr>
-
             </div>
 
             <div id="help" class="mainContent">
                 <h1>Help</h1>
-
-                <div>So, you want to try use this thing? I'd recommend <a href="#" id="loadDefaults">loading the defaults</a>.</div>
+                <div>So, you want to try use this thing? I'd recommend <a href="#" id="loadDefaults">loading the defaults</a>. You might also want to check out the README (wherever that is).</div>
                 <hr>
-
-                Anyway, here is what the view page contains:
-                <ol>
-                    <li>JavaScript from Global, Scene, and HotSpot entries</li>
-                    <li>JavaScript and CSS inserted from loadExternalJS() and loadExternalCSS() used above</li>
-                    <li>CSS from Global, Scene, and HotSpot entries</li>
-                    <li>Header HTML</li>
-                    <li>Scene container</li>
-                    <li>Footer HTML</li>
-                </ol>
-                Note that event scripts (e.g. click, enter, hover) are bound to the respective callback functions.
-                <br>
-                Check out the API documentation for things to put in JS fields. And remember, you can declare functions and variables anywhere you like in the general JS entries.
-                <br><br>
-                This was created by Samuel Brian.
+                Created by Samuel Brian.
             </div>
 
 

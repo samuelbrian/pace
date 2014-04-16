@@ -1,1 +1,56 @@
-{"title":"","CSS":"body {\n    background-color: grey;\n    cursor: default;\n    \n    /* Don't allow highlighting. */\n    -webkit-touch-callout: none;\n    -webkit-user-select: none;\n    -khtml-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n}\n\n#headerHTML {\n    text-align: center;\n}\n\n#footerHTML {\n    text-align: right;\n}\n\n/* Scene class. */\n.scene {\n    width: 800px;\n    height: 300px;\n    margin: 0 auto;\n    margin-top: 20px;\n    margin-bottom: 20px;\n    position: relative;\n}\n\n/* Inventory */\n#inventory {\n    width: 800px;\n    height: 150px;\n    margin: 0 auto;\n    overflow-y: hidden;\n    background-color: lightblue;\n    position: relative;\n}\n\n/* Inventory Item */\n#inventory .item {\n    width: 150px;\n    height: 150px;\n    float: left;\n    background-size: 100% 100%;\n    position: relative;\n}\n\n/* Inventory Item Quantity */\n#inventory .item:after {\n    content: attr(count);\n    background-color: green;\n    color: yellow;\n    padding: 4px;\n    bottom: 0px;\n    right: 0px;\n    position: absolute;\n}\n","JS":"// Window title\nsetTitle(\"Awesome!!!!\");\n\n// Create and add an Inventory\nprependFooter(createInventory());\n\n// Game state variable\nstate = {};\n\n// The starting scene is \"untitled1\"\ngoToScene(\"untitled1\");","headerHTML":"<h1>Pace is Great!</h1>\n","footerHTML":"I hope you enjoy this primary colour game.","scenes":{"untitled1":{"CSS":"#untitled1.scene {\n    background-color: yellow;\n}","JS":"","HTML":"","onEnterJSBody":"","onExitJSBody":"","onMouseMoveJSBody":"","hotSpots":{"untitled1":{"CSS":"#untitled1 #untitled1.hotSpot {\n    background-color: blue;\n}\n","attributeCSS":"top: 119px; left: 78px; height: 103px; width: 135px; position: absolute;","JS":"","HTML":"","onClickJSBody":"addItem(\"http://i.imgur.com/HfCMIa0.png\", 1);","onDoubleClickJSBody":"","onMouseMoveJSBody":""},"untitled2":{"CSS":"#untitled1 #untitled2.hotSpot {\n    border: 2px solid green;\n}\n","attributeCSS":"position: absolute; top: 115px; left: 348px; height: 82px; width: 91px;","JS":"","HTML":"","onClickJSBody":"goToScene(\"untitled2\");","onDoubleClickJSBody":"","onMouseMoveJSBody":""}}},"untitled2":{"CSS":"#untitled2.scene {\n    background-color: lightgreen;\n}\n","JS":"","HTML":"","onEnterJSBody":"","onExitJSBody":"","onMouseMoveJSBody":"","hotSpots":{"untitled1":{"CSS":"#untitled2 #untitled1.hotSpot {\n    background-color: yellow;\n}\n","attributeCSS":"position: absolute; top: 26px; left: 70px; height: 231px; width: 73px;","JS":"","HTML":"","onClickJSBody":"goToScene(\"untitled1\");","onDoubleClickJSBody":"","onMouseMoveJSBody":""}}}}}
+{
+  "title": "",
+  "CSS": "body {\n    background-color: grey;\n    cursor: default;\n    \n    /* Don't allow highlighting. */\n    -webkit-touch-callout: none;\n    -webkit-user-select: none;\n    -khtml-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n}\n\n#headerHTML {\n    text-align: center;\n}\n\n#footerHTML {\n    text-align: right;\n}\n\n/* Scene class. */\n.scene {\n    width: 800px;\n    height: 300px;\n    margin: 0 auto;\n    margin-top: 20px;\n    margin-bottom: 20px;\n    position: relative;\n}\n\n/* Inventory */\n#inventory {\n    width: 800px;\n    height: 150px;\n    margin: 0 auto;\n    overflow-y: hidden;\n    background-color: lightblue;\n    position: relative;\n}\n\n/* Inventory Item */\n#inventory .item {\n    width: 150px;\n    height: 150px;\n    float: left;\n    background-size: 100% 100%;\n    position: relative;\n}\n\n/* Inventory Item Quantity */\n#inventory .item:after {\n    content: attr(count);\n    background-color: green;\n    color: yellow;\n    padding: 4px;\n    bottom: 0px;\n    right: 0px;\n    position: absolute;\n}\n",
+  "JS": "// Window title\nsetTitle(\"Awesome!!!!\");\n\n// Create and add an Inventory\nprependFooter(createInventory());\n\n// Game state variable\nstate = {};\n\n// The starting scene is \"untitled1\"\ngoToScene(\"untitled1\");",
+  "headerHTML": "<h1>Pace is Great!</h1>\n",
+  "footerHTML": "I hope you enjoy this primary colour game.",
+  "scenes": {
+    "untitled1": {
+      "CSS": "#untitled1.scene {\n    background-color: yellow;\n}",
+      "JS": "",
+      "HTML": "",
+      "onEnterJSBody": "",
+      "onExitJSBody": "",
+      "onMouseMoveJSBody": "",
+      "hotSpots": {
+        "untitled1": {
+          "CSS": "#untitled1 #untitled1.hotSpot {\n    background-color: blue;\n}\n",
+          "attributeCSS": "top: 119px; left: 78px; height: 103px; width: 135px; position: absolute;",
+          "JS": "",
+          "HTML": "",
+          "onClickJSBody": "addItem(\"http://i.imgur.com/HfCMIa0.png\", 1);",
+          "onDoubleClickJSBody": "",
+          "onMouseMoveJSBody": ""
+        },
+        "untitled2": {
+          "CSS": "#untitled1 #untitled2.hotSpot {\n    border: 2px solid green;\n}\n",
+          "attributeCSS": "position: absolute; top: 115px; left: 348px; height: 82px; width: 91px;",
+          "JS": "",
+          "HTML": "",
+          "onClickJSBody": "goToScene(\"untitled2\");",
+          "onDoubleClickJSBody": "",
+          "onMouseMoveJSBody": ""
+        }
+      }
+    },
+    "untitled2": {
+      "CSS": "#untitled2.scene {\n    background-color: lightgreen;\n}\n",
+      "JS": "",
+      "HTML": "",
+      "onEnterJSBody": "",
+      "onExitJSBody": "",
+      "onMouseMoveJSBody": "",
+      "hotSpots": {
+        "untitled1": {
+          "CSS": "#untitled2 #untitled1.hotSpot {\n    background-color: yellow;\n}\n",
+          "attributeCSS": "position: absolute; top: 26px; left: 70px; height: 231px; width: 73px;",
+          "JS": "",
+          "HTML": "",
+          "onClickJSBody": "goToScene(\"untitled1\");",
+          "onDoubleClickJSBody": "",
+          "onMouseMoveJSBody": ""
+        }
+      }
+    }
+  }
+}
