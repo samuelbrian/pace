@@ -22,6 +22,7 @@
 
         <!-- Editor libraries -->
         <link rel="stylesheet" href="css/editor.css">
+        <script src="js/pace.js"></script>
         <script src="js/editor.js"></script>
 
         <style id="css-sceneCSS"></style>
@@ -51,7 +52,7 @@
             <div class="foldDivider">Global CSS</div>
             <div id="globalCSS" class="cssEditor"></div>
 
-            <div class="foldDivider">Global JS</div>
+            <div class="foldDivider">Global Script</div>
             <div id="globalJS" class="jsEditor"></div>
 
             <div class="foldDivider">Header HTML</div>
@@ -105,43 +106,49 @@
                 <div class="foldDivider">Scene CSS</div>
                 <div id="sceneCSS" class="cssEditor">
 #scene.untitled {
-    width: 500px;
-    height: 300px;
-    background-position: 0 0;
-    background-image: url("http://knifetanks.com/kt2/images/main.png");
+    width: 840px;
+    height: 400px;
+    background-position: 0px 0px;
+    background-image: url("http://www.ludumdare.com/compo/wp-content/uploads/2009/08/new_cave_bg.jpg");
     background-size: 100% 100%;
-    background-repeat: none;
-    background-color: lightblue;
+    background-repeat: repeat-x;
+    background-color: yellow;
     margin: 0 auto;
+    -webkit-animation: hscroll840px 10s infinite linear;
+}
+
+@-webkit-keyframes hscroll840px {
+    0% { background-position: 0px 0px; }
+    100% { background-position: -840px 0px; }
 }
                 </div>
 
-                <div class="foldDivider">Scene JS</div>
+                <div class="foldDivider">Scene Script</div>
                 <div id="sceneJS" class="jsEditor"></div>
 
-                <div class="foldDivider">On Enter JS</div>
+                <div class="foldDivider">On Enter Script Body</div>
                 <div id="onEnterScript" class="jsEditor"></div>
 
-                <div class="foldDivider">On Hover JS</div>
+                <div class="foldDivider">On Hover Script Body</div>
                 <div id="onHoverScript" class="jsEditor"></div>
             </div>
 
             <div id="hotspotCallbacks">
                 <h2>Hotspot Callbacks:</h2>
 
-                <div class="foldDivider">On Click JS</div>
+                <div class="foldDivider">On Click Script Body</div>
                 <div id="onClickScript" class="jsEditor"></div>
 
-                <div class="foldDivider">On Double-Click JS</div>
+                <div class="foldDivider">On Double-Click Script Body</div>
                 <div id="onDblClickScript" class="jsEditor"></div>
 
-                <div class="foldDivider">On Hover JS</div>
+                <div class="foldDivider">On Hover Script Body</div>
                 <div id="onHoverScript" class="jsEditor"></div>
 
                 <div class="foldDivider">Hotspot CSS</div>
                 <div id="hotspotCSS" class="cssEditor"></div>
 
-                <div class="foldDivider">Hotspot JS</div>
+                <div class="foldDivider">Hotspot Script</div>
                 <div id="hotspotJS" class="jsEditor"></div>
 
             </div>
